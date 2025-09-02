@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Sparkles, Code, GitBranch, Terminal, BookOpen, Users, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import mentorLogo1 from "@/assets/mentora-logo-1.png";
+import mentorLogo1 from "@/assets/mentora-logo.png";
 
 const Index = () => {
   const features = [

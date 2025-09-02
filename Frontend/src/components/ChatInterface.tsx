@@ -5,7 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Send, Sparkles, Code, GitBranch, Terminal, Heart } from "lucide-react";
-import mentorLogo1 from "@/assets/mentora-logo-1.png";
+import mentorLogo1 from "@/assets/mentora-logo.png";
 
 interface Message {
   id: string;

@@ -1,3 +1,6 @@
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,8 +29,10 @@ const App = () => (
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/code-help" element={<ChatPage />} />
             <Route path="/learning" element={<CoursesPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/settings" element={<Index />} />
-            <Route path="/profile" element={<Index />} />
+            <Route path="/profile" element={<Profile />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

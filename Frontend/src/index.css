@@ -155,3 +155,25 @@
     box-shadow: var(--glow-primary);
   }
 }
+
+@layer components {
+  .auth-form {
+    @apply bg-card border border-border rounded-2xl p-8 shadow-xl w-full max-w-md mx-auto;
+  }
+
+  .auth-title {
+    @apply text-2xl font-bold text-center text-foreground mb-6;
+  }
+
+  .auth-input {
+    @apply w-full bg-input text-foreground rounded-lg px-4 py-2 mb-4 border border-border focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .auth-button {
+    @apply w-full bg-primary text-primary-foreground rounded-lg py-2 font-medium shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform;
+  }
+
+  .auth-link {
+    @apply text-sm text-muted-foreground hover:text-primary transition-colors;
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -14,11 +14,28 @@ import {
   Code
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import mentorLogo1 from "@/assets/mentora-logo-1.png";
+import { supabase } from "@/integrations/supabase/client";
+import mentorLogo1 from "@/assets/mentora-logo.png";
 
 const Sidebar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+
+  // Fetch Logged-in user data + avatar
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        setEmail(data.user.email);
+        if (data.user.user_metadata?.avatar_url) {
+          setAvatarUrl(data.user.user_metadata.avatar_url);
+        }
+      }
+    };
+    fetchUser();
+  }, []);
 
   const sidebarItems = [
     { icon: Home, label: "Dashboard", path: "/" },
@@ -115,7 +132,22 @@ const Sidebar = () => {
       </div>
 
       {/* Bottom Actions */}
-      <div className="p-4 border-t border-border space-y-2">
+      <div className="p-4 border-t border-border space-y-3">
+        {/* Avatar & User Info*/}
+        <div className="flex items-center gap-3 mb-3">
+          {avatarUrl ? (
+            <img src={avatarUrl} alt="Avatar" className="w-10 h-10 rounded-full border-2 border-primary shadow-sm" />
+          ) : (
+            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">👤</div>
+          )}
+          <div className="text-sm">
+            <p className="font-medium">{email || "Guest"}</p>
+            <Link to="/profile" className="text-xs text-muted-foreground hover:text-primary">
+              View Profile
+            </Link>
+          </div>
+        </div>
+
         <Button variant="ghost" className="w-full justify-start gap-3" asChild>
           <Link to="/settings">
             <Settings className="w-4 h-4" />
