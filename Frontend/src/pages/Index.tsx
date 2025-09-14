@@ -52,13 +52,6 @@ const Index = () => {
                 <p className="text-xl text-muted-foreground">Your AI Coding Tutor + DevOps Assistant</p>
               </div>
             </div>
-            
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              <strong className="text-foreground">Mentora</strong> is a full-stack AI coding mentor that assists 
-              developers in debugging, learning, and deploying code. Powered by OpenAI's GPT and built with 
-              FastAPI, React, and Docker, Mentora simulates a personal tutor that explains concepts like Python, Git, 
-              and JavaScript through a sleek, modern chat interface.
-            </p>
 
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" className="ai-glow" asChild>

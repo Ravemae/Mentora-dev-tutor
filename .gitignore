@@ -19,11 +19,21 @@ lerna-debug.log*
 # Bun
 bun.lockb
 
+# Vscode
+.vscode/*
+
+# Local env files
+.env.local
+.env.*.local
+
+# .env
+*.env
+
 # ======================================
 # Python / Backend
 # ======================================
-backend/venv
-backend/.env
+backend/env
+
 __pycache__/
 *.pyc
 *.pyo
